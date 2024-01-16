@@ -1,4 +1,6 @@
 import {Metadata} from "next";
+import {Box} from "@mui/material";
+import GameMain from "@/app/game/main";
 
 export const metadata: Metadata = {
     title: 'Slots: Game',
@@ -7,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
     return (
-        <>
-            <p>Game</p>
-        </>
+        <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexGrow: 1}}>
+            <GameMain/>
+        </Box>
     )
 }
