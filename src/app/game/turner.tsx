@@ -5,12 +5,12 @@ import Slot from "@/app/game/slot";
 
 export default function Turner() {
     return (
-        <Box sx={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
-            <Slot/>
-            <Slot/>
-            <Slot/>
-            <Slot/>
-            <Slot/>
+        <Box sx={{display: 'grid', height: '72vmin'}}>
+            <Slot slotOffset={'0vmin'}/>
+            <Slot slotOffset={'15vmin'}/>
+            <Slot slotOffset={'30vmin'}/>
+            <Slot slotOffset={'45vmin'}/>
+            <Slot slotOffset={'60vmin'}/>
         </Box>
     )
 }

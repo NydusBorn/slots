@@ -13,11 +13,11 @@ import {
     ListItemText,
     ThemeProvider,
     useMediaQuery,
-    createTheme, Divider
+    createTheme, Divider, SwipeableDrawer
 } from "@mui/material";
 import {Gamepad, Menu, Settings} from '@mui/icons-material';
 import React from "react";
-import { useRouter } from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 
 
 const inter = Inter({subsets: ['latin']})
@@ -40,7 +40,7 @@ export default function RootLayout({
             <CssBaseline/>
             <html lang="en">
             <body className={inter.className}>
-            <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} anchor={'left'}
+            <SwipeableDrawer open={drawerOpen} onOpen={() => setDrawerOpen(true)} onClose={() => setDrawerOpen(false)} anchor={'left'}
             >
                 <Box>
                     <List>
@@ -62,14 +62,14 @@ export default function RootLayout({
                         </ListItem>
                     </List>
                 </Box>
-            </Drawer>
+            </SwipeableDrawer>
             <Box sx={{height: '100vh', display: 'flex', flexDirection: 'row'}}>
-                <Button variant={'outlined'} sx={{padding: '0', margin: '8px'}} onClick={() => setDrawerOpen(true)}>
+                <Button variant={'outlined'} sx={{padding: '0', marginLeft: '8px', marginTop: '8px', marginBottom: '8px'}} onClick={() => setDrawerOpen(true)}>
                     <Menu/>
                 </Button>
-                <Box sx={{flexGrow: 1, display: 'flex', flexDirection: 'column', borderRadius: '16px', padding: '16px', marginRight: '16px', marginTop: '8px', marginBottom: '8px', gap: '8px', backgroundColor: 'rgba(128, 128, 128, 0.2)'}}>
+                <Box sx={{flexGrow: 1, display: 'flex', flexDirection: 'column', borderRadius: '16px', padding: '16px', margin: '8px', gap: '8px', backgroundColor: 'rgba(128, 128, 128, 0.2)'}}>
                     <Box sx={{height: '32px'}}>
-                        <p>{window.location.pathname == '/game' ? 'Game' : 'Settings'}</p>
+                        <p>{usePathname() == '/game' ? 'Game' : 'Settings'}</p>
                     </Box>
                     <Divider/>
                     {children}
