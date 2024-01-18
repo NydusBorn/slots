@@ -1,16 +1,12 @@
-'use client'
+import {Box} from "@mui/material";
+import {Slot, SlotClass} from "@/app/game/slot";
 
-import {Box, Button} from "@mui/material";
-import Slot from "@/app/game/slot";
-
-export default function Turner() {
+export function Turner({slots}: Readonly<{ slots: SlotClass[] }>) {
     return (
         <Box sx={{display: 'grid', height: '72vmin'}}>
-            <Slot slotOffset={'0vmin'}/>
-            <Slot slotOffset={'15vmin'}/>
-            <Slot slotOffset={'30vmin'}/>
-            <Slot slotOffset={'45vmin'}/>
-            <Slot slotOffset={'60vmin'}/>
+            {slots.map((slot, i) =>
+                <Slot key={`slot${i}`} slotParams={slot}/>
+            )}
         </Box>
     )
 }
