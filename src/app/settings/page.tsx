@@ -1,4 +1,5 @@
 import {Metadata} from "next";
+import SettingsMain from "@/app/settings/main";
 
 export const metadata: Metadata = {
     title: 'Slots: Settings',
@@ -7,8 +8,6 @@ export const metadata: Metadata = {
 
 export default function Home() {
     return (
-        <>
-            <p>Settings</p>
-        </>
+        <SettingsMain/>
     )
 }

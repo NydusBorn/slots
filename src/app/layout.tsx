@@ -16,7 +16,7 @@ import {
     createTheme, Divider, SwipeableDrawer
 } from "@mui/material";
 import {Gamepad, Menu, Settings} from '@mui/icons-material';
-import React from "react";
+import React, {useEffect} from "react";
 import {usePathname, useRouter} from 'next/navigation';
 
 
@@ -35,6 +35,17 @@ export default function RootLayout({
             mode: prefersDarkMode ? 'dark' : 'light',
         },
     }), [prefersDarkMode],);
+    useEffect(() => {
+        if (localStorage.getItem('fps_limit') == null){
+            localStorage.setItem('fps_limit', '0');
+        }
+        if (localStorage.getItem('time_per_spin') == null){
+            localStorage.setItem('time_per_spin', '10');
+        }
+        if (localStorage.getItem('current_money') == null){
+            localStorage.setItem('current_money', '1000');
+        }
+    }, []);
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
