@@ -1,12 +1,15 @@
 'use client'
 
-import {Box, Button, Divider, Slider, TextField} from "@mui/material";
-import React from "react";
-import {number} from "prop-types";
+import {Box, Button, Divider, Slider} from "@mui/material";
+import React, {useEffect} from "react";
 
 export default function SettingsMain() {
-    const [fpsLimit, setFpsLimit] = React.useState<number>( parseInt(localStorage.getItem('fps_limit')!))
-    const [timePerSpin, setTimePerSpin] = React.useState<number>(parseInt(localStorage.getItem('time_per_spin')!))
+    const [fpsLimit, setFpsLimit] = React.useState<number>(0)
+    const [timePerSpin, setTimePerSpin] = React.useState<number>(0)
+    useEffect(() => {
+        setFpsLimit(parseInt(localStorage.getItem('fps_limit')!))
+        setTimePerSpin(parseInt(localStorage.getItem('time_per_spin')!))
+    }, []);
     return (
         <Box sx={{display: 'flex', flexDirection: 'column', height: '100%', width: '80vw', margin: 'auto', marginTop: '5vh', marginBottom: '2vh', gap: '3vh', flexGrow: 1}}>
             <Box sx={{display: 'flex', flexDirection: 'column', width: '100%', backgroundColor: 'rgba(128, 128, 128, 0.5)', borderRadius: '2vmin', padding: '1vmin', paddingLeft: '2vmin', paddingRight: '2vmin', gap: '0.5rem'}}>
