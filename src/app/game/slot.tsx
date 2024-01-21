@@ -1,5 +1,6 @@
 import {Box} from "@mui/material";
 import React from "react";
+import Image from "next/image"
 
 export enum SlotIcon {
     Jackpot, // 1 percent, useless unless all 3 in line
@@ -16,19 +17,19 @@ export class SlotClass {
 
 export function Slot({slotParams}: Readonly<{ slotParams: SlotClass }>) {
     return (
-        <Box sx={{position: 'relative', top: `${slotParams.offset * 75}vmin`, gridRow: '1', gridColumn: '1', height: '12vmin', width: '12vmin', borderRadius: '1rem', borderWidth: '2px', borderColor: 'rgba(128, 128, 128, 0.5)', backgroundColor: 'rgba(128, 128, 128, 0.2)', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <Box sx={{position: 'relative', top: `${slotParams.offset * 75}vmin`, padding: '1rem', gridRow: '1', gridColumn: '1', height: '12vmin', width: '12vmin', borderRadius: '1rem', borderWidth: '2px', borderColor: 'rgba(128, 128, 128, 0.5)', backgroundColor: 'rgba(128, 128, 128, 0.2)', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             {(() => {
                 switch (slotParams.symbol) {
                     case SlotIcon.Jackpot:
-                        return <p>JACKPOT</p>;
+                        return <Image src={"/Jackpot.png"} alt={'JACKPOT'} width={2000} height={2000} />;
                     case SlotIcon.Loss:
-                        return <p>LOSS</p>;
+                        return <Image src={"/Loss.png"} alt={'LOSS'} width={2000} height={2000} />;
                     case SlotIcon.Banana:
-                        return <p>BANANA</p>;
+                        return <Image src={"/Banana.png"} alt={'BANANA'} width={2000} height={2000} />;
                     case SlotIcon.Cherry:
-                        return <p>CHERRY</p>;
+                        return <Image src={"/Cherry.png"} alt={'CHERRY'} width={2000} height={2000} />;
                     case SlotIcon.Grapes:
-                        return <p>GRAPE</p>;
+                        return <Image src={"/Grape.png"} alt={'GRAPES'} width={100} height={100} />;
                     default:
                         return <p>UNKNOWN</p>;
                 }

@@ -191,7 +191,7 @@ export default function GameMain() {
                             setResultDialogText("An unhealthy obsession...")
                         }
                         else {
-                            setResultDialogText("Unexpected situation!!!")
+                            setResultDialogText("You won nothing in particular...")
                         }
                         localStorage.setItem("current_money", currentMoney.current.toString())
                     } else {
